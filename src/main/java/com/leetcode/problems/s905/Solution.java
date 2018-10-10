@@ -46,7 +46,7 @@ class Solution {
     }
 }
 
-class Test{
+class TestSortArrayByParity{
     public static void main(String[] args) {
         int[] A = new int[]{3,1,2,4};
         int[] a1 = new Solution().sortArrayByParity(A);

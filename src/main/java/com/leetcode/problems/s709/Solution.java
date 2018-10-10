@@ -40,7 +40,7 @@ class Solution {
     }
 }
 
-class Test{
+class TestToLowerCase{
     public static void main(String[] args) {
         System.out.println(new Solution().toLowerCase("Hello"));
         System.out.println(new Solution().toLowerCase("here"));
