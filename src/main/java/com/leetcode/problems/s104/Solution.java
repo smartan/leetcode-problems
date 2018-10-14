@@ -35,7 +35,13 @@ package com.leetcode.problems.s104;
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        return 0;
+        int depth = 0;
+        if(null != root){
+            int leftDepth = maxDepth(root.left);
+            int rightDepth = maxDepth(root.right);
+            depth = leftDepth > rightDepth ? leftDepth + 1 : rightDepth + 1;
+        }
+        return depth;
     }
 }
 
@@ -44,7 +50,29 @@ class TreeNode {
     TreeNode left;
     TreeNode right;
 
+    TreeNode left(TreeNode left){
+        this.left = left;
+        return this;
+    }
+
+    TreeNode right(TreeNode right){
+        this.right = right;
+        return this;
+    }
+
     TreeNode(int x) {
         val = x;
+    }
+}
+
+class TestMaximumDepthOfBinaryTree{
+    public static void main(String[] args) {
+        TreeNode treeNode = new TreeNode(3)
+                .left(new TreeNode(9).left(null).right(null))
+                .right(new TreeNode(20)
+                        .left(new TreeNode(15))
+                        .right(new TreeNode(7))
+                );
+        System.out.println(new Solution().maxDepth(treeNode));
     }
 }
